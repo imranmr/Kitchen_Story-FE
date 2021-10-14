@@ -1,0 +1,170 @@
+<div class="container">
+  <h1 class="text-center mt-5">Checkout Page</h1>
+  <br />
+  <br />
+  <h3>Order Summary</h3>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Product Name</th>
+        <th scope="col">Price</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Total Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let ci of user.cart.cartitem">
+        <th scope="row">{{ ci.product.productname }}</th>
+        <td>{{ ci.itemprice | currency: "USD" }}</td>
+        <td>{{ ci.cartitemquantity }}</td>
+        <td>{{ ci.totalprice | currency: "USD" }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5>Total Price: {{user.cart.totalprice | currency: "USD" }}</h5>
+  <br />
+  <h3>Payment Information:</h3>
+  <div class="form-group">
+    <form [formGroup]="cardform" (ngSubmit)="onSubmit(cardform)">
+      <label for="cardname"> Name on card</label>
+      <input
+        class="form-control col-6"
+        type="text"
+        name="cardname"
+        id="cardname"
+        required
+        minlength="2"
+        formControlName="cardname"
+      />
+
+      <small
+        *ngIf="hasError('cardname')"
+        [class]="hasError('cardname') ? 'error' : ''"
+      >
+        <div *ngIf="f.cardname.errors">
+          <span *ngIf="f.cardname.errors.required"
+            >Card Name is a required field</span
+          >
+          <span *ngIf="f.cardname.errors.minlength"
+            >Card Name is at least 2 characters long</span
+          >
+        </div>
+      </small>
+
+      <div class="row">
+        <div class="col">
+          <label for="cardnumber">Card number</label>
+          <input
+            class="form-control"
+            type="number"
+            name="cardnumber"
+            id="cardnumber"
+            formControlName="cardnumber"
+          />
+          <small
+            *ngIf="hasError('cardnumber')"
+            [class]="hasError('cardnumber') ? 'error' : ''"
+          >
+            <div *ngIf="f.cardnumber.errors">
+              <span *ngIf="f.cardnumber.errors.required"
+                >Card Number is a required field</span
+              >
+              <span *ngIf="f.cardnumber.errors.min"
+                >Card Number is at least 16 numbers long</span
+              >
+              <span *ngIf="f.cardnumber.errors.max"
+                >Card Number is at most 16 numbers long</span
+              >
+            </div>
+          </small>
+        </div>
+        <div class="col">
+          <div class="row">
+            <div class="col">
+              <label for="cardexpiry">Expiry</label>
+              <input
+                class="form-control"
+                type="date"
+                name="cardexpiry"
+                id="cardexpiry"
+                formControlName="expiry"
+              />
+              <small
+                *ngIf="hasError('expiry')"
+                [class]="hasError('expiry') ? 'error' : ''"
+              >
+                <div *ngIf="f.expiry.errors">
+                  <span *ngIf="f.expiry.errors.required"
+                    >Expiration Date is a required field</span
+                  >
+                </div>
+              </small>
+            </div>
+            <div class="col">
+              <label for="cvv">CVV</label>
+              <input
+                class="form-control"
+                type="number"
+                name="cvv"
+                id="cvv"
+                formControlName="cvv"
+              />
+              <small
+                *ngIf="hasError('cvv')"
+                [class]="hasError('cvv') ? 'error' : ''"
+              >
+                <div *ngIf="f.cvv.errors">
+                  <span *ngIf="f.cvv.errors.required"
+                    >CVV is a required field</span
+                  >
+                  <span *ngIf="f.cvv.errors.minlength"
+                    >CVV is 3 numbers long</span
+                  >
+                </div>
+              </small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <label for="address">Address:</label>
+      <input
+        class="form-control col-6"
+        type="text"
+        name="address"
+        id="address"
+        placeholder="Street Address, Apartment, Suite"
+        formControlName="address"
+        #address
+      />
+      <small
+        *ngIf="hasError('address')"
+        [class]="hasError('address') ? 'error' : ''"
+      >
+      <div *ngIf="f.address.errors">
+        <span *ngIf="f.address.errors.required"
+          >Address is a required field</span
+        >
+      </div>
+      </small>
+     
+      <br />
+      <div class="row">
+        <div class="col">
+          <button
+            type="submit"
+            class="btn btn-primary btn-lg"
+            (click)="goback()"
+          >
+            Go Back
+          </button>
+        </div>
+        <div class="col">
+          <button type="submit" class="btn btn-success float-right btn-lg">
+            Confirm Purchase
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

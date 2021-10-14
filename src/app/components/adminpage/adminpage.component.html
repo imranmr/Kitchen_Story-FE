@@ -1,0 +1,49 @@
+<div class="container text-center mt-5">
+    <h1>Welcome to Admin Page!</h1>
+    <div class="row">
+        
+        <div class="col text-left">
+            <h3>Admin Details:</h3>
+            <p>Userid: {{adminuser.userid}}</p>
+            <p>Email: {{adminuser.email}}</p>
+            <p>Password: {{adminuser.password}}</p>
+        </div>
+        <div class="col text-left">
+            <br>
+            <p>First Name: {{adminuser.firstname}}</p>
+            <p>Last Name: {{adminuser.lastname}}</p>
+            <p>Mobile: {{adminuser.mobile}}</p>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+      <a routerLink="/products/create" class="text-left btn btn-success ">Add New Product</a>
+    </div>
+    <br>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Product ID</th>
+            <th scope="col">Product Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Created by Userid</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+        
+            <tr *ngFor="let p of products">
+                <th scope="row">{{p.productid}}</th>
+                <td>{{p.productname}}</td>
+                <td>{{p.price | currency:'USD'}}</td>
+                <td>{{p.productquantity}}</td>
+                <td>{{p.user.userid}}</td>
+                <button class="btn btn-danger" (click)="onDelete(p.productid)">Delete</button>
+                <button class="btn btn-success" (click)="onUpdate(p.productid)">Update</button>
+              </tr>
+    
+          
+        </tbody>
+      </table>
+</div>

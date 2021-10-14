@@ -1,0 +1,11 @@
+.loginform{
+    border: 2px solid black;
+    margin-top: 20px;
+    padding: 20px;
+}
+
+.error{
+    color: red;
+    font-weight: bold;
+    font-style: italic;
+}

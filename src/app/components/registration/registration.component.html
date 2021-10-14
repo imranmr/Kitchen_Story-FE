@@ -1,0 +1,97 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col">
+
+        </div>
+        <div class="col-6">
+            <h1>Signup Form</h1>
+            <form class="register-form" [formGroup] ="registerForm" (ngSubmit)="onSubmit(registerForm)">
+                <div class="form-row" >
+                    <!-- First Name  -->
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="firstname">First Name</label>
+                            <input type="text" class="form-control" name="firstname" id="firstname" formControlName="firstname">
+                            <small *ngIf="hasError('firstname')" [class]="hasError('firstname')? 'error' : ''"  >
+                                <div *ngIf="f.firstname.errors">
+                                    <span *ngIf="f.firstname.errors.required">First Name is a required field</span>
+                                    <span *ngIf="f.firstname.errors.minlength">First Name is a min 3 char long field</span>
+                                    <span *ngIf="f.firstname.errors.maxlength">First Name is a max 15 char long field</span>
+                                </div>
+
+                            </small>
+                        </div>
+                    </div>
+                    <!-- Last Name  -->
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="lastname">Last Name</label>
+                            <input type="text" class="form-control" name="lastname" id="lastname" formControlName="lastname" required>
+                            <small *ngIf="hasError('lastname')" [class]="hasError('lastname')? 'error' : ''"  >
+                                <div *ngIf="f.lastname.errors">
+                                    <span *ngIf="f.lastname.errors.required">Last Name is a required field</span>
+                                    <span *ngIf="f.lastname.errors.minlength">Last Name is a min 3 char long field</span>
+                                    <span *ngIf="f.lastname.errors.maxlength">Last Name is a max 15 char long field</span>
+                                </div>
+
+                            </small>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row" >
+                    <!-- Email  -->
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="text" class="form-control" name="email" id="email" formControlName="email">
+                            <small *ngIf="hasError('email')" [class]="hasError('email')? 'error' : ''"  >
+                                <div *ngIf="f.email.errors">
+                                    <span *ngIf="f.email.errors.required">Email is a required field</span>
+                                    <span *ngIf="f.email.errors.pattern">Email not valid</span>
+                                    <span *ngIf="f.email.errors.email">Email not valid</span>
+                                </div>
+
+                            </small>
+                        </div>
+                    </div>
+                    <!-- Password Name  -->
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control" name="password" id="password" formControlName="password">
+                            <small *ngIf="hasError('password')" [class]="hasError('password')? 'error' : ''"  >
+                                <div *ngIf="f.password.errors">
+                                    <span *ngIf="f.password.errors.required">Password is a required field</span>
+                                    <span *ngIf="f.password.errors.minlength">Password is a min 5 char long field</span>
+                                    <span *ngIf="f.password.errors.maxlength">Password is a max 16 char long field</span>
+                                </div>
+
+                            </small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label for="mobile">Mobile Number</label>
+                            <input type="text" class="form-control" name="mobile" id="mobile" formControlName="mobile">
+                            <small *ngIf="hasError('mobile')" [class]="hasError('firstName')? 'error' : ''"  >
+                                <div *ngIf="f.mobile.errors">
+                                    <span *ngIf="f.mobile.errors.required">Mobile is a required field</span>
+                                    <span *ngIf="f.mobile.errors.maxlength">Mobile is a max 10 digits</span>
+                                </div>
+
+                            </small>
+                        </div>
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn btn-success btn-block">Submit</button>
+            </form>
+        </div>
+        <div class="col">
+
+        </div>
+    </div>
+</div>

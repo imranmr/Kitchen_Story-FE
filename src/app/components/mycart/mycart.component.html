@@ -1,0 +1,53 @@
+<div class="container mt-5 ">
+    <h1 text-center>My Cart</h1>
+    <br>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Product Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Total Price</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody *ngIf="user.adminrights != true">
+        
+            <tr *ngFor="let ci of user.cart.cartitem" >
+                <th scope="row">{{ci.product.productname}}</th>
+                <td>{{ci.itemprice | currency:'USD'}}</td>
+                <td>{{ci.cartitemquantity}}</td>
+                <td>{{ci.totalprice  | currency:'USD'}}</td>
+                <td>
+                    <form>
+                      <label for="quantity">Quantity:</label>
+                        <input class=quantitybox type="number" min="1" value="1" max={{ci.cartitemquantity}} id="quantity" name="quantity" #quantity>
+                        <button class="btn btn-danger" (click)="onDelete(ci.product.productid,user.cart.cartid, quantity.value)">Delete</button>
+                    </form>
+
+                </td>
+                
+                
+              </tr>
+    
+          
+        </tbody>
+      </table>
+      <br>
+      <div class="row">
+        <div class="col">
+          <h3 text-left *ngIf="user!=null">Total Cart Price: {{user.cart.totalprice | currency:'USD'}}</h3>
+        </div>
+        <div class="col text-center">
+          <button type="button" class="btn btn-primary btn-lg" (click)="buycart()" *ngIf="user.adminrights != true&& user.cart.cartitem != null && user.cart.cartitem.length>0">Buy Now</button>
+        </div>
+      </div>
+      
+      <br>
+
+      
+      
+      
+</div>
+
+

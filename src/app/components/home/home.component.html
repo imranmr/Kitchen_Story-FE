@@ -1,0 +1,14 @@
+<section class="jumbotron text-center">
+    <div class="container">
+        <h1>Welcome to Kitchen Story</h1>
+        <p>Press the button below to start shopping!</p>
+    </div>
+    <div class="container text center">
+        <a routerLink="/products"><button type="button" class="btn btn-success">Lets Shop!</button></a>
+        
+    </div>
+    <br>
+    <div class="container text center">
+        <a routerLink="/login"><button type="button" class="btn btn-primary" *ngIf="user==null">Login!</button></a>
+    </div>
+</section>

@@ -1,0 +1,76 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col"></div>
+    <div class="col-6">
+      <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+      <form
+        class="loginform"
+        [formGroup]="loginForm"
+        (ngSubmit)="onSubmit(loginForm)"
+      >
+        <!-- Email  -->
+        <div class="col">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input
+              type="text"
+              class="form-control"
+              name="email"
+              id="email"
+              formControlName="email"
+            />
+            <small
+              *ngIf="hasError('email')"
+              [class]="hasError('email') ? 'error' : ''"
+            >
+              <div *ngIf="f.email.errors">
+                <span *ngIf="f.email.errors.required"
+                  >Email is a required field</span
+                >
+                <span *ngIf="f.email.errors.pattern">Email not valid</span>
+                <span *ngIf="f.email.errors.email">Email not valid</span>
+              </div>
+            </small>
+          </div>
+        </div>
+        <!-- Password Name  -->
+        <div class="col">
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              class="form-control"
+              name="password"
+              id="password"
+              formControlName="password"
+            />
+            <small
+              *ngIf="hasError('password')"
+              [class]="hasError('password') ? 'error' : ''"
+            >
+              <div *ngIf="f.password.errors">
+                <span *ngIf="f.password.errors.required"
+                  >Password is a required field</span
+                >
+                <span *ngIf="f.password.errors.minlength"
+                  >Password is at least 6 characters long</span
+                >
+                <span *ngIf="f.password.errors.maxlength"
+                  >Password is at most 16 characters long</span
+                >
+              </div>
+            </small>
+          </div>
+        </div>
+        <span *ngIf="emailpassworderror" class="error">Email or Password Incorrect!</span>
+        <button type="submit" class="btn btn-success btn-block">Submit</button>
+        <br>
+        <a routerLink="/registration" class="btn btn-primary btn">Create Account</a>
+      </form>
+    </div>
+    <div class="col"></div>
+    
+  </div>
+  
+</div>
+
