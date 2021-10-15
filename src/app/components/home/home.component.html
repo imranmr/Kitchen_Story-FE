@@ -1,10 +1,11 @@
-<section class="jumbotron text-center">
+<section class="home text-center">
     <div class="container">
+        <h1 *ngIf="user!=null">Hi {{user.firstname}}!</h1>
         <h1>Welcome to Kitchen Story</h1>
-        <p>Press the button below to start shopping!</p>
+        <br>
     </div>
     <div class="container text center">
-        <a routerLink="/products"><button type="button" class="btn btn-success">Lets Shop!</button></a>
+        <a routerLink="/products"><button type="button" class="btn btn-success">Start Shopping!</button></a>
         
     </div>
     <br>

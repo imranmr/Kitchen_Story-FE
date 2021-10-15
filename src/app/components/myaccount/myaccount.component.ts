@@ -39,5 +39,9 @@ export class MyaccountComponent implements OnInit {
     )
   }
 
+  resetpassword(){
+    console.log("Reset Password button")
+    this.router.navigate(["resetpassword"])
+  }
   
 }

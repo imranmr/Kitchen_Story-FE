@@ -1,16 +1,21 @@
 <div class="container mt-5 text-center">
     <h1>My Account</h1>
 
-   
+   <div class="row">
     <div class="col-6">
-        <h3 class="text-left">Account Details</h3>
-        <ul class="list-group text-left">
-            <li class="list-group-item">First Name:<strong>{{user.firstname}}</strong></li>
-            <li class="list-group-item">Last Name: <strong>{{user.lastname}}</strong></li>
-            <li class="list-group-item">Email: <strong>{{user.email}}</strong></li>
-            <li class="list-group-item">Password: <strong>{{user.password}}</strong></li>
-          </ul>
-    </div>
+      <h3 class="text-left">Account Details</h3>
+      <ul class="list-group text-left">
+          <li class="list-group-item">First Name:<strong>{{user.firstname}}</strong></li>
+          <li class="list-group-item">Last Name: <strong>{{user.lastname}}</strong></li>
+          <li class="list-group-item">Email: <strong>{{user.email}}</strong></li>
+          <li class="list-group-item">Password: <strong>{{user.password}}</strong></li>
+        </ul>
+  </div>
+  <div class="col-6 passbtn">
+    <button type="button" class=" btn btn-outline-danger" (click)="resetpassword()">Reset Password</button>
+  </div>
+   </div>
+    
     
 </div>
 <br>

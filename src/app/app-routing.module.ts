@@ -1,3 +1,4 @@
+import { ResetpasswordComponent } from './components/resetpassword/resetpassword.component';
 import { ConfirmationpageComponent } from './components/confirmationpage/confirmationpage.component';
 import { BuypageComponent } from './components/buypage/buypage.component';
 import { CreateComponent } from './components/products/create/create.component';
@@ -26,7 +27,8 @@ const routes: Routes = [
   {path:"registration",component:RegistrationComponent},
   {path:"adminpage",component:AdminpageComponent},
   {path:"buypage",component:BuypageComponent},
-  {path:"confirmationpage",component:ConfirmationpageComponent}
+  {path:"confirmationpage",component:ConfirmationpageComponent},
+  {path:"resetpassword",component:ResetpasswordComponent}
   
 ];
 

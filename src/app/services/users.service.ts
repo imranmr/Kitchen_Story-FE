@@ -9,6 +9,7 @@ export class UsersService {
   private createuserurl:string="http://localhost:8080/user/create"
   private loginurl:string="http://localhost:8080/user/login"
   private getuserurl:string="http://localhost:8080/user/getuser"
+  private resetpasswordurl:string="http://localhost:8080/user/resetpassword"
   constructor(private httpClient:HttpClient) { }
     
     public getAllUser(user:any):any{
@@ -28,5 +29,9 @@ export class UsersService {
 
     public getUser(user:number){
       return this.httpClient.get(`${this.getuserurl}/${user}`);
+    }
+
+    public resetpassword(user:any){
+      return this.httpClient.put(this.resetpasswordurl,user);
     }
 }

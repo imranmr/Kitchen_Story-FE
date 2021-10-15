@@ -18,6 +18,7 @@ import { AdminpageComponent } from './components/adminpage/adminpage.component';
 import { CreateComponent } from './components/products/create/create.component';
 import { BuypageComponent } from './components/buypage/buypage.component';
 import { ConfirmationpageComponent } from './components/confirmationpage/confirmationpage.component';
+import { ResetpasswordComponent } from './components/resetpassword/resetpassword.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { ConfirmationpageComponent } from './components/confirmationpage/confirm
     AdminpageComponent,
     CreateComponent,
     BuypageComponent,
-    ConfirmationpageComponent
+    ConfirmationpageComponent,
+    ResetpasswordComponent
   ],
   imports: [
     BrowserModule,

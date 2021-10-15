@@ -12,6 +12,7 @@ export class HomeComponent implements OnInit {
  
   constructor() { }
 
+  
   ngOnInit(): void {
     try{
       this.user = JSON.parse(localStorage.getItem('user')!);
@@ -23,7 +24,6 @@ export class HomeComponent implements OnInit {
     catch(e){
       this.user = null;
     }
-    
     
   }
 
