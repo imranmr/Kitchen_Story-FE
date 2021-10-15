@@ -40,12 +40,18 @@ export class NavbarComponent implements OnInit {
     if (this.user==null){
       this.router.navigate(['login']);
     }else{
-      this.router.navigate(['mycart']);
+      if(this.user.adminrights==true){
+        this.router.navigate(['myaccount'])
+      }else{
+        this.router.navigate(['mycart']);
+      }
+      
     }
   }
   logout(){
     localStorage.removeItem('user');
     this.router.navigate(["home"]);
+    this.ngOnInit();
     console.log("logging out");
   }
 }

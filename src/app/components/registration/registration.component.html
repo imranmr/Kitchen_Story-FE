@@ -76,7 +76,7 @@
                         <div class="form-group">
                             <label for="mobile">Mobile Number</label>
                             <input type="text" class="form-control" name="mobile" id="mobile" formControlName="mobile">
-                            <small *ngIf="hasError('mobile')" [class]="hasError('firstName')? 'error' : ''"  >
+                            <small *ngIf="hasError('mobile')" [class]="hasError('mobile')? 'error' : ''"  >
                                 <div *ngIf="f.mobile.errors">
                                     <span *ngIf="f.mobile.errors.required">Mobile is a required field</span>
                                     <span *ngIf="f.mobile.errors.maxlength">Mobile is a max 10 digits</span>

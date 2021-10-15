@@ -1,0 +1,11 @@
+.card{
+    margin: 5% 10%;
+    border: 2px solid black;
+}
+.addtocart{
+    margin: auto;
+}
+.productquantitybox{
+    margin-left: 5%;
+    margin-right: 5%;
+}

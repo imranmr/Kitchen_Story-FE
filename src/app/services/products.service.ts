@@ -14,9 +14,9 @@ export class ProductsService {
   private getusercarturl:string="http://localhost:8080/home/getcart"
   private removeitemfromcarturl:string="http://localhost:8080/home/remove"
   private buyitemsfromcarturl:string="http://localhost:8080/home/buy"
+
   constructor(private httpClient:HttpClient) { }
-  
-  
+
   public getAllProducts():any{
     return this.httpClient.post(this.producturl,null);
   }

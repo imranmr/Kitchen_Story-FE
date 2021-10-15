@@ -102,6 +102,7 @@ export class BuypageComponent implements OnInit {
 
   goback(){
     console.log("Clicked Go back")
+    this.router.navigate(["/mycart"])
   }
 
   confirmbuy(){
