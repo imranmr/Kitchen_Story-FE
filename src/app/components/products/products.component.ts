@@ -13,7 +13,7 @@ export class ProductsComponent implements OnInit {
   public products:any;
   public filter:any;
   public submitted:boolean = false;
-  
+  counter = Array;
   productid:number=0;
   quantity:number=1;
   user:any = null;

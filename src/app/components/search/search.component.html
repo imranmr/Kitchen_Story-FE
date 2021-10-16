@@ -24,9 +24,10 @@
                             <div class="col">
                             </div>
                             <div class="col">
-                                <label for="quantity">Quantity: </label>
-                                <input class="productquantitybox"type="number" min="1" value="1" max={{p.productquantity}} id="quantity" name="quantity" #quantity>
-                                <button type="submit" class="btn btn-primary" (click)="onSubmit(quantity.value,p.productid)" *ngIf="user!=null">Add to Cart</button>
+                                <select class="productquantitybox" #quantity2>
+                                    <option *ngFor="let t of [].constructor(p.productquantity); let x = index" value={{x+1}}>{{x+1}}</option>
+                                </select>
+                                <button type="submit" class="btn btn-primary" (click)="onSubmit(quantity2.value,p.productid)" *ngIf="user!=null">Add to Cart</button>
                             </div>
                         </div>
                         
