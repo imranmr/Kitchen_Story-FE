@@ -1,3 +1,4 @@
+import { UsersService } from './../../services/users.service';
 import { Router } from '@angular/router';
 import { ProductsService } from './../../services/products.service';
 import { Component, OnInit } from '@angular/core';
@@ -9,14 +10,16 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./adminpage.component.css']
 })
 export class AdminpageComponent implements OnInit {
+  
   adminuser = JSON.parse(localStorage.getItem('user')!);
   public products:any;
   productsub: Subscription = new Subscription;
   
-  constructor(private productsService:ProductsService, private router:Router) { }
+  constructor(private productsService:ProductsService, private router:Router, private userService:UsersService) { }
 
   ngOnInit(): void {
     this.products = this.getProducts();
+    this.getUser();
   }
 
   public getProducts(){
@@ -46,6 +49,21 @@ export class AdminpageComponent implements OnInit {
   };
   onUpdate(productid:number){
     console.log("Update this item",productid);
+  }
+  getUser(){
+    this.userService.getUser(this.adminuser.userid).subscribe(
+      (res:any)=>{
+        console.log("res",res);
+        this.adminuser = res;
+      },(error:any)=>{
+        console.log("Error fetching user",error);
+      }
+    )
+  }
+
+  resetpassword(){
+    console.log("Reset Password button")
+    this.router.navigate(["resetpassword"])
   }
 
 }
